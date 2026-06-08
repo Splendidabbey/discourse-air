@@ -214,8 +214,9 @@ div.ac-wrap {
   }
 }
 
-.d-header-icons .icon img.avatar {
-  border-radius: 0.25em;
+.d-header-icons .icon img.avatar,
+#toggle-current-user img.avatar {
+  border-radius: 50%;
 }
 
 .menu-panel.drop-down {
@@ -640,7 +641,7 @@ html body #main-outlet {
   background: #e6f0ff;
   color: #122b43;
   text-align: center;
-  padding: 1.5em 2em;
+  padding: 1.15em 1.5em;
   border-radius: 0.75em;
 
   &__title {
@@ -655,16 +656,16 @@ html body #main-outlet {
     width: 100%;
     max-width: 100%;
     height: 1px;
-    margin: 0.85em 0 1em;
+    margin: 0.65em 0 0.75em;
     border: none;
     background: #b8cfe8;
   }
 
   &__text {
-    font-size: var(--font-0);
+    font-size: var(--font-down-1);
     font-weight: 400;
-    line-height: var(--line-height-medium);
-    margin: 0 0 0.35em;
+    line-height: var(--line-height-small);
+    margin: 0 0 0.25em;
     color: #122b43;
 
     &:last-child {
@@ -688,7 +689,7 @@ html body #main-outlet {
     font-weight: 700;
     margin: 0 0 0.5em;
     line-height: var(--line-height-small);
-    max-width: 40em;
+    white-space: nowrap;
   }
 
   &__disclaimer {
@@ -701,19 +702,27 @@ html body #main-outlet {
 
   &__button {
     background: #e31b1b;
-    color: #fff;
+    color: #fff !important;
     border: none;
     font-weight: 700;
-    font-size: var(--font-up-1);
-    padding: 0.7em 1.75em;
-    border-radius: 0.5em;
+    font-size: var(--font-0);
+    padding: 0.5em 1.25em;
+    border-radius: 0.4em;
     line-height: var(--line-height-medium);
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:visited,
+    &:active {
       background: #c41818;
-      color: #fff;
+      color: #fff !important;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .gtf-upgrade-banner__headline {
+    font-size: var(--font-down-1);
   }
 }
 
