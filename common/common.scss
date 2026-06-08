@@ -648,7 +648,7 @@ html body #main-outlet {
     font-size: var(--font-up-2);
     font-weight: 700;
     margin: 0;
-    line-height: var(--line-height-small);
+    line-height: var(--line-height-medium);
     color: #122b43;
   }
 
@@ -664,12 +664,22 @@ html body #main-outlet {
   &__text {
     font-size: var(--font-0);
     font-weight: 400;
-    line-height: var(--line-height-medium);
-    margin: 0 0 0.25em;
+    line-height: var(--line-height-large);
+    margin: 0;
     color: #122b43;
+  }
 
-    &:last-child {
-      margin-bottom: 0;
+  &__line {
+    display: block;
+    white-space: nowrap;
+    line-height: var(--line-height-large);
+
+    &:not(:last-child) {
+      margin-bottom: 0.4em;
+    }
+
+    @media (max-width: 900px) {
+      white-space: normal;
     }
   }
 }
@@ -688,7 +698,7 @@ html body #main-outlet {
     font-size: var(--font-up-1);
     font-weight: 700;
     margin: 0 0 0.5em;
-    line-height: var(--line-height-small);
+    line-height: var(--line-height-medium);
     white-space: nowrap;
   }
 
@@ -696,7 +706,7 @@ html body #main-outlet {
     font-size: var(--font-down-1);
     font-weight: 400;
     margin: 0 0 1.25em;
-    line-height: var(--line-height-medium);
+    line-height: var(--line-height-large);
     max-width: 40em;
   }
 
