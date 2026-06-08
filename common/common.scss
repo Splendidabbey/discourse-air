@@ -637,24 +637,39 @@ html body #main-outlet {
 }
 
 .gtf-welcome-banner {
-  background: #dceefa;
-  color: var(--primary);
+  background: #e6f0ff;
+  color: #122b43;
   text-align: center;
-  padding: 1.25em 1.5em;
-  border-radius: 0.5em;
+  padding: 1.5em 2em;
+  border-radius: 0.75em;
 
   &__title {
-    font-size: var(--font-up-1);
+    font-size: var(--font-up-2);
     font-weight: 700;
-    margin: 0 0 0.75em;
+    margin: 0;
     line-height: var(--line-height-small);
+    color: #122b43;
+  }
+
+  &__divider {
+    width: 100%;
+    max-width: 100%;
+    height: 1px;
+    margin: 0.85em 0 1em;
+    border: none;
+    background: #b8cfe8;
   }
 
   &__text {
     font-size: var(--font-0);
+    font-weight: 400;
     line-height: var(--line-height-medium);
-    margin: 0 auto;
-    max-width: 56em;
+    margin: 0 0 0.35em;
+    color: #122b43;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -665,7 +680,7 @@ html body #main-outlet {
   background: #faf3e0;
   color: #1c1c1c;
   text-align: center;
-  padding: 2em 2.5em;
+  padding: 1.75em 2em;
   border-radius: 0.75em;
 
   &__headline {
@@ -673,15 +688,15 @@ html body #main-outlet {
     font-weight: 700;
     margin: 0 0 0.5em;
     line-height: var(--line-height-small);
-    max-width: 36em;
+    max-width: 40em;
   }
 
   &__disclaimer {
     font-size: var(--font-down-1);
     font-weight: 400;
-    margin: 0 0 1.5em;
+    margin: 0 0 1.25em;
     line-height: var(--line-height-medium);
-    max-width: 36em;
+    max-width: 40em;
   }
 
   &__button {
@@ -689,8 +704,8 @@ html body #main-outlet {
     color: #fff;
     border: none;
     font-weight: 700;
-    font-size: var(--font-0);
-    padding: 0.75em 1.5em;
+    font-size: var(--font-up-1);
+    padding: 0.7em 1.75em;
     border-radius: 0.5em;
     line-height: var(--line-height-medium);
 
@@ -704,7 +719,17 @@ html body #main-outlet {
 
 html.dark {
   .gtf-welcome-banner {
-    background: rgb(var(--tertiary-rgb), 0.18);
+    background: rgb(var(--tertiary-rgb), 0.15);
+    color: var(--primary);
+
+    &__title,
+    &__text {
+      color: var(--primary);
+    }
+
+    &__divider {
+      background: rgb(var(--primary-rgb), 0.2);
+    }
   }
 
   .gtf-upgrade-banner {
@@ -719,5 +744,41 @@ html.dark {
         background: #c41818;
       }
     }
+  }
+}
+
+body.login-page,
+body.signup-page,
+body.invite-page,
+body.password-reset-page,
+body.activate-account-page {
+  .gtf-site-banners {
+    display: none;
+  }
+
+  #main-outlet {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 1em 1.5em 1.5em !important;
+    min-height: unset;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    max-width: 800px;
+  }
+}
+
+.login-fullpage,
+.signup-fullpage,
+.invites-show,
+.password-reset-page {
+  min-height: unset;
+  justify-content: flex-start;
+  padding-top: 0.5em;
+
+  .login-form,
+  #login-form,
+  .invite-form {
+    margin-top: 0;
   }
 }
