@@ -358,7 +358,7 @@ html body #main-outlet {
     display: contents;
 
     .topic-list-data.default {
-      width: 63%;
+      width: 55%;
     }
 
     .topic-list-data.posters {
@@ -366,11 +366,15 @@ html body #main-outlet {
     }
 
     .topic-list-data.posts {
-      width: 15%;
+      width: 12%;
+    }
+
+    .topic-list-data.views {
+      width: 12%;
     }
 
     .topic-list-data.activity {
-      width: 15%;
+      width: 13%;
     }
   }
 
@@ -426,7 +430,7 @@ html body #main-outlet {
       }
 
       .topic-list-data.main-link {
-        width: 63%;
+        width: 55%;
         order: 2;
       }
 
@@ -444,16 +448,24 @@ html body #main-outlet {
       }
 
       .topic-list-data.posts {
-        width: 15%;
+        width: 12%;
         order: 3;
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
-      .topic-list-data.age {
-        width: 15%;
+      .topic-list-data.views {
+        width: 12%;
         order: 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .topic-list-data.age {
+        width: 13%;
+        order: 5;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -558,7 +570,9 @@ html body #main-outlet {
 }
 
 .topic-list-data.num.views {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 // published page additions
