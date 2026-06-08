@@ -2,4 +2,4 @@ en:
   theme_metadata:
     description: "A clean and modern theme for Discourse."
     settings:
-      upgrade_banner_url: "Payment URL for the Upgrade Now button"
+      upgrade_banner_url: "Subscriptions product URL for the Upgrade Now button"

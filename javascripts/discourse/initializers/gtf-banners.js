@@ -8,12 +8,13 @@ export default apiInitializer((api) => {
       return;
     }
 
-    if (settings.upgrade_banner_url) {
-      link.href = settings.upgrade_banner_url;
+    const url = settings.upgrade_banner_url || "/s";
+    link.href = url;
+
+    if (/^https?:\/\//i.test(url)) {
       link.target = "_blank";
       link.rel = "noopener noreferrer";
     } else {
-      link.removeAttribute("href");
       link.removeAttribute("target");
       link.removeAttribute("rel");
     }
