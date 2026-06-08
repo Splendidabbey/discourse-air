@@ -667,19 +667,16 @@ html body #main-outlet {
     line-height: var(--line-height-large);
     margin: 0;
     color: #122b43;
+    width: 100%;
   }
 
   &__line {
     display: block;
-    white-space: nowrap;
     line-height: var(--line-height-large);
+    text-align: center;
 
     &:not(:last-child) {
-      margin-bottom: 0.4em;
-    }
-
-    @media (max-width: 900px) {
-      white-space: normal;
+      margin-bottom: 0.15em;
     }
   }
 }
@@ -707,7 +704,17 @@ html body #main-outlet {
     font-weight: 400;
     margin: 0 0 1.25em;
     line-height: var(--line-height-large);
-    max-width: 40em;
+    width: 100%;
+  }
+
+  &__line {
+    display: block;
+    line-height: var(--line-height-large);
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-bottom: 0.15em;
+    }
   }
 
   &__button {
