@@ -1,0 +1,3 @@
+upgrade_banner_url:
+  default: ""
+  description: Payment URL for the Upgrade Now button
