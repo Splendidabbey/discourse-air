@@ -704,17 +704,7 @@ html body #main-outlet {
     font-weight: 400;
     margin: 0 0 1.25em;
     line-height: var(--line-height-large);
-    width: 100%;
-  }
-
-  &__line {
-    display: block;
-    line-height: var(--line-height-large);
-    text-align: center;
-
-    &:not(:last-child) {
-      margin-bottom: 0.15em;
-    }
+    white-space: nowrap;
   }
 
   &__button {
@@ -738,6 +728,11 @@ html body #main-outlet {
 }
 
 @media (max-width: 768px) {
+  .gtf-upgrade-banner__headline,
+  .gtf-upgrade-banner__disclaimer {
+    white-space: normal;
+  }
+
   .gtf-upgrade-banner__headline {
     font-size: var(--font-down-1);
   }
