@@ -358,19 +358,19 @@ html body #main-outlet {
     display: contents;
 
     .topic-list-data.default {
-      width: 55%;
+      width: 50%;
     }
 
     .topic-list-data.posters {
-      width: 7%;
+      width: 12%;
     }
 
     .topic-list-data.posts {
-      width: 12%;
+      width: 10%;
     }
 
     .topic-list-data.views {
-      width: 12%;
+      width: 10%;
     }
 
     .topic-list-data.activity {
@@ -430,25 +430,24 @@ html body #main-outlet {
       }
 
       .topic-list-data.main-link {
-        width: 55%;
+        width: 50%;
         order: 2;
       }
 
       .topic-list-data.posters {
-        width: 7%;
+        width: 12%;
+        min-width: 5.5em;
         order: 1;
         height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
-
-        a:not(.latest) {
-          display: none;
-        }
+        overflow: visible;
+        flex-shrink: 0;
       }
 
       .topic-list-data.posts {
-        width: 12%;
+        width: 10%;
         order: 3;
         display: flex;
         justify-content: center;
@@ -456,7 +455,7 @@ html body #main-outlet {
       }
 
       .topic-list-data.views {
-        width: 12%;
+        width: 10%;
         order: 4;
         display: flex;
         justify-content: center;
@@ -512,31 +511,26 @@ html body #main-outlet {
     }
 
     .posters {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        display: inline-flex;
+        line-height: 0;
+      }
+
       .avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 8px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
       }
 
-      a.latest {
-        margin-right: 4px;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
+      a:not(:first-child) {
+        margin-left: -0.65em;
 
         .avatar {
-          margin-right: 0;
-        }
-      }
-
-      a:not(.latest) {
-        margin-left: -22px;
-
-        .avatar {
-          border: 3px solid var(--secondary);
+          border: 2px solid var(--secondary);
         }
       }
     }
@@ -747,6 +741,11 @@ html body #main-outlet {
 
     &__title {
       font-size: var(--font-up-1);
+    }
+
+    &__text,
+    &__line {
+      font-size: var(--font-down-1);
     }
 
     &__line {

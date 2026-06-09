@@ -180,12 +180,8 @@ ol.category-breadcrumb {
   border-bottom-right-radius: 8px;
 }
 
-.full-width .contents .topic-list .topic-list-header tr {
-  background-color: var(--secondary);
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgb(0, 0, 0, 0.05);
-  border: 1px solid rgb(var(--primary-rgb), 0.1);
-  margin-bottom: 1em;
+.topic-list .topic-list-header {
+  display: none;
 }
 
 .topic-list .topic-item-stats {
@@ -252,4 +248,21 @@ ol.category-breadcrumb {
 #navigation-bar .nav-pills > li > a,
 .navigation-controls .nav-pills > li > a {
   color: var(--primary) !important;
+}
+
+body.login-page,
+body.signup-page,
+body.login-fullpage,
+body.signup-fullpage,
+body.invite-page,
+body.password-reset-page,
+body.activate-account-page,
+body.subscribe,
+body.subscribe-show,
+body.subscriptions {
+  background-color: var(--secondary) !important;
+
+  .background-container {
+    display: none !important;
+  }
 }
