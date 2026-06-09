@@ -742,13 +742,32 @@ html body #main-outlet {
 }
 
 @media (max-width: 768px) {
+  .gtf-welcome-banner {
+    padding: 1em 0.75em;
+
+    &__title {
+      font-size: var(--font-up-1);
+    }
+
+    &__line {
+      display: inline;
+      line-height: var(--line-height-large);
+
+      &:not(:last-child)::after {
+        content: " ";
+      }
+    }
+  }
+
   .gtf-upgrade-banner__headline,
   .gtf-upgrade-banner__disclaimer {
     white-space: normal;
+    line-height: var(--line-height-large);
   }
 
   .gtf-upgrade-banner__headline {
     font-size: var(--font-down-1);
+    margin-bottom: 0.65em;
   }
 }
 

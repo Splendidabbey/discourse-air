@@ -246,6 +246,10 @@ ol.category-breadcrumb {
   }
 }
 
-.list-controls .nav-pills .list-control-toggle-link-trigger {
-  color: var(--secondary);
+.list-controls .nav-pills .list-control-toggle-link-trigger,
+.list-controls .nav-pills li.navigation-toggle a,
+.list-controls .nav-pills > li > a,
+#navigation-bar .nav-pills > li > a,
+.navigation-controls .nav-pills > li > a {
+  color: var(--primary) !important;
 }
