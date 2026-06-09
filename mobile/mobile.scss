@@ -31,7 +31,12 @@ html
     .user-preferences-page,
     .user-messages-page,
     .user-notifications-page,
-    .user-badges-page
+    .user-badges-page,
+    .login-page,
+    .signup-page,
+    .invite-page,
+    .password-reset-page,
+    .activate-account-page
   )
   #main-outlet {
   width: calc(100% - 1em);
@@ -266,5 +271,46 @@ body.subscriptions {
 
   .background-container {
     display: none !important;
+  }
+}
+
+html body.login-page,
+html body.signup-page,
+html body.invite-page,
+html body.password-reset-page,
+html body.activate-account-page {
+  #main-outlet,
+  #main-outlet.wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: var(--secondary) !important;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .login-fullpage,
+  .signup-fullpage {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    align-items: stretch;
+
+    .login-body,
+    .signup-body {
+      width: 100%;
+      max-width: 100%;
+      padding-inline: 1em;
+      box-sizing: border-box;
+    }
+  }
+
+  .login-form,
+  #login-form,
+  .signup-form,
+  #signup-form {
+    width: 100%;
+    box-sizing: border-box;
   }
 }

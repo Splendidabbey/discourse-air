@@ -819,6 +819,30 @@ body.activate-account-page {
     width: 100%;
     max-width: 800px;
   }
+
+  @media screen and (width <= 768px) {
+    #main-outlet,
+    #main-outlet.wrap {
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0 !important;
+    }
+
+    .login-fullpage,
+    .signup-fullpage {
+      width: 100%;
+      max-width: 100%;
+
+      .login-body,
+      .signup-body {
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 1em;
+        box-sizing: border-box;
+      }
+    }
+  }
 }
 
 .login-fullpage,
