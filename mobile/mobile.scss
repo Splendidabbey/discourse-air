@@ -180,8 +180,10 @@ ol.category-breadcrumb {
   border-bottom-right-radius: 8px;
 }
 
+.topic-list thead,
+.full-width .contents .topic-list .topic-list-header,
 .topic-list .topic-list-header {
-  display: none;
+  display: none !important;
 }
 
 .topic-list .topic-item-stats {
