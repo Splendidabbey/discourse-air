@@ -314,3 +314,24 @@ html body.activate-account-page {
     box-sizing: border-box;
   }
 }
+
+.gtf-chat-fab {
+  z-index: 10000 !important;
+  right: calc(0.85em + env(safe-area-inset-right, 0px));
+  bottom: calc(0.85em + env(safe-area-inset-bottom, 0px));
+  min-height: 2.85rem;
+  padding: 0.65em 1em;
+
+  &:not(.is-hidden) {
+    display: inline-flex !important;
+  }
+
+  .d-icon,
+  svg {
+    font-size: 1.1em;
+  }
+
+  &__label {
+    font-size: var(--font-down-1);
+  }
+}

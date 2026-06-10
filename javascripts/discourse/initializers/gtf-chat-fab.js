@@ -1,3 +1,4 @@
+import { scheduleOnce } from "@ember/runloop";
 import { apiInitializer } from "discourse/lib/api";
 import { iconHTML } from "discourse/lib/icon-library";
 import { i18n } from "discourse-i18n";
@@ -10,11 +11,22 @@ function isAuthOrAdminPath(pathname) {
   );
 }
 
-function canUseChat(api) {
-  const siteSettings = api.container.lookup("site-settings:main");
-  const currentUser = api.container.lookup("service:current-user");
+function getChatStateManager(api) {
+  try {
+    return api.container.lookup("service:chat-state-manager");
+  } catch {
+    return null;
+  }
+}
 
-  return siteSettings.chat_enabled && currentUser;
+function getSiteSettings(api) {
+  return api.container.lookup("service:site-settings");
+}
+
+function canUseChat(api) {
+  const siteSettings = getSiteSettings(api);
+
+  return siteSettings?.chat_enabled && api.getCurrentUser();
 }
 
 function openChat(api) {
@@ -32,16 +44,22 @@ function openChat(api) {
   router.transitionTo(chatStateManager.lastKnownChatURL || "/chat");
 }
 
+function isChatCoveringScreen(api, pathname) {
+  if (/^\/chat(\/|$)/.test(pathname)) {
+    return true;
+  }
+
+  const chatStateManager = getChatStateManager(api);
+
+  return chatStateManager?.isDrawerExpanded === true;
+}
+
 function shouldShowFab(api, pathname) {
   if (!canUseChat(api) || isAuthOrAdminPath(pathname)) {
     return false;
   }
 
-  const chatStateManager = api.container.lookup("service:chat-state-manager");
-
-  return !(
-    chatStateManager.isDrawerActive || chatStateManager.isFullPageActive
-  );
+  return !isChatCoveringScreen(api, pathname);
 }
 
 function updateFab(api, pathname) {
@@ -61,7 +79,7 @@ function ensureFab(api) {
     fab = document.createElement("button");
     fab.id = FAB_ID;
     fab.type = "button";
-    fab.className = "gtf-chat-fab btn btn-icon-text btn-primary";
+    fab.className = "gtf-chat-fab btn btn-primary";
     fab.setAttribute("aria-label", i18n("chat.title_capitalized"));
     fab.innerHTML = `${iconHTML("d-chat")}<span class="gtf-chat-fab__label">${i18n("chat.title_capitalized")}</span>`;
     fab.addEventListener("click", (event) => {
@@ -75,13 +93,15 @@ function ensureFab(api) {
 }
 
 export default apiInitializer((api) => {
-  if (!api.container.lookup("site-settings:main").chat_enabled) {
+  if (!getSiteSettings(api)?.chat_enabled) {
     return;
   }
 
   const syncFab = (url) => {
-    ensureFab(api);
-    updateFab(api, url || window.location.pathname);
+    scheduleOnce("afterRender", null, () => {
+      ensureFab(api);
+      updateFab(api, url || window.location.pathname);
+    });
   };
 
   syncFab(window.location.pathname);
@@ -91,6 +111,8 @@ export default apiInitializer((api) => {
   });
 
   api.onAppEvent("chat:toggle-expand", () => {
-    updateFab(api, window.location.pathname);
+    scheduleOnce("afterRender", null, () => {
+      updateFab(api, window.location.pathname);
+    });
   });
 });

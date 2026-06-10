@@ -860,31 +860,42 @@ body.activate-account-page {
   }
 }
 
-.gtf-chat-fab {
+.gtf-chat-fab.btn {
   position: fixed;
   right: calc(1em + env(safe-area-inset-right, 0px));
   bottom: calc(1em + env(safe-area-inset-bottom, 0px));
-  z-index: 999;
+  z-index: 10000;
   display: inline-flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 0.45em;
-  min-width: 3.25rem;
-  min-height: 3.25rem;
-  padding: 0.65em 0.9em;
+  gap: 0.5em;
+  min-height: 3rem;
+  margin: 0;
+  padding: 0.7em 1.15em !important;
   border: none;
   border-radius: 999px;
   background: var(--tertiary);
   color: #fff !important;
   box-shadow: 0 8px 24px rgb(0, 0, 0, 0.18);
   cursor: pointer;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
 
-  .d-icon {
-    font-size: 1.2em;
+  .d-icon,
+  svg {
+    display: block;
+    flex-shrink: 0;
+    margin: 0;
+    font-size: 1.15em;
     color: #fff;
   }
 
   &__label {
+    display: block;
+    margin: 0;
+    padding: 0;
     font-size: var(--font-0);
     font-weight: 700;
     line-height: 1;
@@ -898,22 +909,6 @@ body.activate-account-page {
   }
 
   &.is-hidden {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .gtf-chat-fab {
-    min-width: 3.5rem;
-    min-height: 3.5rem;
-    padding: 0;
-
-    &__label {
-      display: none;
-    }
-
-    .d-icon {
-      font-size: 1.35em;
-    }
+    display: none !important;
   }
 }
