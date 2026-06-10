@@ -859,3 +859,61 @@ body.activate-account-page {
     margin-top: 0;
   }
 }
+
+.gtf-chat-fab {
+  position: fixed;
+  right: calc(1em + env(safe-area-inset-right, 0px));
+  bottom: calc(1em + env(safe-area-inset-bottom, 0px));
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  min-width: 3.25rem;
+  min-height: 3.25rem;
+  padding: 0.65em 0.9em;
+  border: none;
+  border-radius: 999px;
+  background: var(--tertiary);
+  color: #fff !important;
+  box-shadow: 0 8px 24px rgb(0, 0, 0, 0.18);
+  cursor: pointer;
+
+  .d-icon {
+    font-size: 1.2em;
+    color: #fff;
+  }
+
+  &__label {
+    font-size: var(--font-0);
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--tertiary-hover);
+    color: #fff !important;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .gtf-chat-fab {
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    padding: 0;
+
+    &__label {
+      display: none;
+    }
+
+    .d-icon {
+      font-size: 1.35em;
+    }
+  }
+}
