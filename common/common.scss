@@ -646,10 +646,13 @@ html body #main-outlet {
 }
 
 .gtf-welcome-banner {
-  background: #e6f0ff;
-  color: #122b43;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #faf3e0;
+  color: #1c1c1c;
   text-align: center;
-  padding: 1.15em 1.5em;
+  padding: 1.75em 2em;
   border-radius: 0.75em;
 
   &__title {
@@ -657,7 +660,7 @@ html body #main-outlet {
     font-weight: 700;
     margin: 0;
     line-height: var(--line-height-medium);
-    color: #122b43;
+    color: #1c1c1c;
   }
 
   &__divider {
@@ -666,15 +669,15 @@ html body #main-outlet {
     height: 1px;
     margin: 0.65em 0 0.75em;
     border: none;
-    background: #b8cfe8;
+    background: #e8dcc0;
   }
 
   &__text {
     font-size: var(--font-0);
     font-weight: 400;
     line-height: var(--line-height-large);
-    margin: 0;
-    color: #122b43;
+    margin: 0 0 1.25em;
+    color: #1c1c1c;
     width: 100%;
   }
 
@@ -687,6 +690,29 @@ html body #main-outlet {
       margin-bottom: 0.15em;
     }
   }
+
+  &__button {
+    background: #e31b1b;
+    color: #fff !important;
+    border: none;
+    font-weight: 700;
+    font-size: var(--font-0);
+    padding: 0.5em 1.25em;
+    border-radius: 0.4em;
+    line-height: var(--line-height-medium);
+
+    &:hover,
+    &:focus,
+    &:visited,
+    &:active {
+      background: #c41818;
+      color: #fff !important;
+    }
+  }
+}
+
+.gtf-upgrade-banner--hidden {
+  display: none !important;
 }
 
 .gtf-upgrade-banner {
@@ -772,7 +798,7 @@ html body #main-outlet {
 
 html.dark {
   .gtf-welcome-banner {
-    background: rgb(var(--tertiary-rgb), 0.15);
+    background: #3a3528;
     color: var(--primary);
 
     &__title,
@@ -782,6 +808,15 @@ html.dark {
 
     &__divider {
       background: rgb(var(--primary-rgb), 0.2);
+    }
+
+    &__button {
+      background: #e31b1b;
+
+      &:hover,
+      &:focus {
+        background: #c41818;
+      }
     }
   }
 
